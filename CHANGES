@@ -1,0 +1,13 @@
+CHANGELOG
+-0.32
+ fix to handle multiplicity higher than 9
+
+- 0.31
+ fixed crash for non -up/-dn cases
+
+- 0.3
+ implemented -up and -dn
+ fixed NPT= being appended to filenames
+ support for more than 99 atoms in a structure
+ fixed deprecation warning in range
+
