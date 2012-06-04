@@ -2,3 +2,38 @@ auto_dos
 ========
 
 Automatically parse a WIEN2k QTL file to calculate Density of States and XSPEC output.
+
+##########################################################
+# auto_dos_new.py Script 0.3
+#
+# coded by John McLeod
+# 2011 03 01
+#
+# This script is designed to generate and sum the DOS from all atoms of a given
+# type in a structure
+#
+# x lawp -qtl MUST have already been run for this script to work
+#
+# the directory must be a "proper" w2web directory, i.e. the name of the folder should
+# be the same as the <case> for the calculation
+#
+# this script requires a command line argument specifying the directory for the calculation
+#
+# optionally, this script may be called with the additional arguments:
+#       -All    specifies a distinct DOS file to be created for each atom,
+#               rather than summing by atomic species
+#       -NaN    specifies that NaN entries should be recalculated as linear
+#               values between the available endpoints
+#       -Sym    specifies that all the symmetries should be created, rather than just s, p, and d
+#       -Tot    specifies that the total DOS should also be calculated
+#       -X#     specifies that the unbroadened XES should be calculated
+#               if # is K, then only K-edges will be calculated
+#               if # is L, then only L2,3-edges will be calculated
+#               if # is M, then only M4,5-edges will be calculated
+#               if # is not specified, then all available edges will be calculated
+#       -brd    specifieds that the XES should also be broadened.
+#               this uses a fixed spectrometer resolution of 1e3
+#               and lorentz broadening with a scaling factor of 3 eV
+#               and a core-hole lifetime parameter using Auger yield for isolated atoms
+#               (see Schwarz, et. al., J. Phys. F: Metal Phys., 9(12), 2509 (1979).)
+##########################################################
