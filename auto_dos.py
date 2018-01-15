@@ -428,7 +428,7 @@ def clean_dos(case, atom='new', NaN=-1):
             # check to see if this is the first set of data we've encountered
             # if so, add it, removing '\n' character at end
             #	(even if '\n' character isn't there we will just remove the least significant decimal, no big deal)
-            print ("e=", float(e), "largest energy=", float(energy[-1]))
+            print("Energy:", e, "enegry.count(e):",energy.count(e))
             if data == []:
                 data.append(line[:-1])
                 energy.append(e)
@@ -460,7 +460,10 @@ def clean_dos(case, atom='new', NaN=-1):
     dos_data = open(case_name + '.DOS_' + atom, 'w')
     # write the column headers
     for val in symmetry.split()[:-1]:
-        dos_data.write(val + ', ')
+        if (val != 'ENERGY'):
+            dos_data.write(val[-1]+', ') #strip off the atom number
+        else:
+            dos_data.write(val + ', ')
     dos_data.write(symmetry.split()[-1] + '\n')
 
     # write the DOS data as comma-separated values
