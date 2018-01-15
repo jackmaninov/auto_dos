@@ -428,7 +428,6 @@ def clean_dos(case, atom='new', NaN=-1):
             # check to see if this is the first set of data we've encountered
             # if so, add it, removing '\n' character at end
             #	(even if '\n' character isn't there we will just remove the least significant decimal, no big deal)
-            print("Energy:", e, "enegry.count(e):",energy.count(e))
             if data == []:
                 data.append(line[:-1])
                 energy.append(e)
