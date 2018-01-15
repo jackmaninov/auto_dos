@@ -419,7 +419,6 @@ def clean_dos(case, atom='new', NaN=-1):
                     else:
                         # don't add the 'ENERGY' tag twice
                         symmetry += line[1:-1].split('ENERGY')[-1]
-                    print ("Symmetry: ", symmetry)
                 continue
 
             # get the energy of these DOS data
