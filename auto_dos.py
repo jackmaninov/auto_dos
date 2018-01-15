@@ -91,7 +91,7 @@ def get_params(file_name, flag, idx_list, flag_idx=-1, delimiter=[], idx_len=[])
         if delimiter == '':
             data = line.split()
         else:
-            data = my_split(line, delimiter)
+            data = list(my_split(line, delimiter))
 
         # check to see if this is a valid line
         # line is valid if the <FLAG_IDX>th value of DATA is FLAG,
