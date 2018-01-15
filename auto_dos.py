@@ -68,7 +68,7 @@ from scipy.interpolate import interp1d
 #		(if not specified, no length is assumed)
 #		(this is used for string-related values that might have a space in them)
 ##########################################################
-def get_params(file_name, flag, idx_list, flag_idx=-1, delimiter=[], idx_len=[]):
+def get_params(file_name, flag, idx_list, flag_idx=-1, delimiter='', idx_len=[]):
     # first make sure that this file exists
     if os.path.exists(file_name) == False:
         print("ERROR: ", file_name, "does not exist! Did you forget -up or -dn?")
@@ -852,7 +852,7 @@ def sum_dos(file_list, sum_file='summed_dos', mult_list=[]):
             # this is stupid because versions below 2.6 don't have the same nifty `translate' method
             # the `strip' method is less fool-proof, I think
             if (sys.version_info[1] > 5):
-                temp_line = line.translate(None, '-,. 0123456789Nae\n')
+                temp_line = line.translate({ord(c): None for c in '-,. 0123456789Nae\n'})
             else:
                 temp_line = line.strip('-,. 0123456789Nae\n')
             if temp_line != '':
