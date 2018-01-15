@@ -419,6 +419,7 @@ def clean_dos(case, atom='new', NaN=-1):
                     else:
                         # don't add the 'ENERGY' tag twice
                         symmetry += line[1:-1].split('ENERGY')[-1]
+                    print ("Symmetry: ", symmetry)
                 continue
 
             # get the energy of these DOS data
@@ -427,6 +428,7 @@ def clean_dos(case, atom='new', NaN=-1):
             # check to see if this is the first set of data we've encountered
             # if so, add it, removing '\n' character at end
             #	(even if '\n' character isn't there we will just remove the least significant decimal, no big deal)
+            print ("e=", float(e), "largest energy=", float(energy[-1]))
             if data == []:
                 data.append(line[:-1])
                 energy.append(e)
@@ -861,8 +863,8 @@ def sum_dos(file_list, sum_file='summed_dos', mult_list=[]):
                     # grab this header
                     header = line[:-1]
 
-                    if line[:-1].split(', ').count(s) == 1:
-                        spd_idx.append(line[:-1].split(', ').index(s))
+                    if header.split(', ').count(s) == 1:
+                        spd_idx.append(header.split(', ').index(s))
                     else:
                         # if we can't find an s, p, and d orbital we are probably in trouble
                         print("No", s, " DOS found in file: ", dos_file)
