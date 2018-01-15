@@ -1155,7 +1155,7 @@ for calc_dir in calc_dir_list:
     if return_val == -1:
         sys.exit()
     # convert the multiplicity into an integer
-    print(return_val)
+    #print(return_val)
     multiplicity = [int(val) for val in return_val[0]]
     # leave the symmetry as a long string for easy handling
     symmetry = return_val[1]
@@ -1165,7 +1165,7 @@ for calc_dir in calc_dir_list:
     #	the atom name is the 1st entry, the atomic number is the last
     return_val = get_params(case_name + '.struct', 'NPT=', [0, -1], idx_len=[3, 3])
 
-    print(return_val)
+    #print(return_val)
     # make sure we have successfully read in the parameters from the STRUCT file
     if return_val == -1:
         sys.exit()
