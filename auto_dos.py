@@ -981,7 +981,7 @@ def sum_xes(file_list, sum_file='summed_xes', mult_list=[]):
             # this is stupid because versions below 2.6 don't have the same nifty `translate' method
             # the `strip' method is less fool-proof, I think
             if (sys.version_info[1] > 5):
-                temp_line = line.translate(None, '-,. 0123456789Nae\n')
+                temp_line = line.translate({ord(c): None for c in '-,. 0123456789Nae\n'})
             else:
                 temp_line = line.strip('-,. 0123456789Nae\n')
             if temp_line != '':
