@@ -16,7 +16,7 @@
 # this script requires a command line argument specifying the directory for the calculation
 #
 # optionally, this script may be called with the additional arguments:
-# 	-All	specifies a distinct DOS file to be created for each atom, 
+# 	-All	specifies a distinct DOS file to be created for each atom,
 #		rather than summing by atomic species
 #	-NaN	specifies that NaN entries should be recalculated as linear
 #		values between the available endpoints
@@ -54,7 +54,7 @@ from scipy.interpolate import interp1d
 
 ##########################################################
 # function get_params
-# 
+#
 # this is a generic function designed to open a particular file,
 # identify lines containing a particular FLAG, and retrieve
 # a set of values from that line
@@ -149,13 +149,13 @@ def my_split(s, seps):
     fragments = [s]
     for token in seps:
         fragments = join(f.split(token) for f in fragments)
-    fragments = filter(None, fragments)
+    fragments = list(filter(None, fragments))
     return fragments
 
 
 ##########################################################
 # function make_dos
-# 
+#
 # this is a function designed to write a TETRA input file
 # and use the shell command 'x tetra' to generate DOS files
 #
@@ -221,7 +221,7 @@ def make_dos(case, atom, symmetry, flag=-1):
 
 ##########################################################
 # function make_xes
-# 
+#
 # this is a function designed to write a XSPEC input file
 # and use the shell command 'x xspec' to generate XES files
 #
@@ -319,7 +319,7 @@ def make_xes(case, atom, flag=1):
 
 ##########################################################
 # function make_xas
-# 
+#
 # this is a function designed to write a XSPEC input file
 # and use the shell command 'x xspec' to generate XAS files
 #
@@ -377,7 +377,7 @@ def make_xas(case, atom, flag=1):
 
 ##########################################################
 # function clean_dos
-# 
+#
 # this is a function designed to clean up DOS?EV files
 #
 # this function requires a CASE string for the WIEN2k <case> name
@@ -482,7 +482,7 @@ def clean_dos(case, atom='new', NaN=-1):
 
 ##########################################################
 # function read_txspec
-# 
+#
 # this is a function designed to read a TXSPEC file
 #
 # this function requires a file name
@@ -525,7 +525,7 @@ def read_txspec(file_name=''):
 
 ##########################################################
 # function broaden_txspec
-# 
+#
 # this is a function designed to broaden TXSPEC data
 #
 # this function requires a list of energies and unbroadened transition
@@ -642,7 +642,7 @@ def broaden_txspec(energy, xes, edges=[], gamma0=0.1, res=0.1, split=-1.0, ratio
 
 ##########################################################
 # function clean_xes
-# 
+#
 # this is a function designed to clean up TXSPEC files
 #
 # this function requires a CASE string for the WIEN2k <case> name
@@ -812,7 +812,7 @@ def clean_xes(case, atom='new', spec='XES', e_bind=[], e_edge=[], atom_Z=-1):
 
 ##########################################################
 # function sum_dos
-# 
+#
 # this is a function designed to sum cleaned DOS_xxx files
 # for all atoms of the same species
 #
@@ -924,7 +924,7 @@ def sum_dos(file_list, sum_file='summed_dos', mult_list=[]):
 
 ##########################################################
 # function sum_xes
-# 
+#
 # this is a function designed to sum cleaned XES_xxx files
 # for all atoms of the same species
 #
