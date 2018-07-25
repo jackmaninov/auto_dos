@@ -864,7 +864,7 @@ def sum_dos(file_list, sum_file='summed_dos', mult_list=[]):
                     # grab this header
                     header = line[:-1]
 
-                    if header.split(', ').count(s) == 1:
+                    if s in header.split(', '):
                         spd_idx.append(header.split(', ').index(s))
                     else:
                         # if we can't find an s, p, and d orbital we are probably in trouble
